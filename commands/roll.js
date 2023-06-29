@@ -38,7 +38,7 @@ module.exports = {
       const buffer = Buffer.from(json.base64, "base64");
       const attachment = new AttachmentBuilder(buffer, {
         name: `${(json.seed, Math.round(Date.now() / 1e3))}.png`,
-      });
+      }).setSpoiler(true);
       await interaction.followUp({ files: [attachment] });
     } catch (error) {
       await interaction.followUp("Error");
